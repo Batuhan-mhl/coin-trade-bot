@@ -10,7 +10,7 @@ from teknik_sinyal_bot import check_signals
 
 def run_combined_bot():
     try:
-        send_telegram_message("Bot başlatıldı: Trade analizleri yapılıyor...")
+        send_telegram_message("Bot başlatıldı, analizlere başlıyoruz!")
         analyze_signals()
         analyze_macd_bollinger()
         analyze_tp_sl()
@@ -21,7 +21,9 @@ def run_combined_bot():
 
 if __name__ == "__main__":
     keep_alive()
+    send_telegram_message("Bot serverda başarıyla çalışıyor!")
     bot_thread = threading.Thread(target=run_combined_bot)
     bot_thread.start()
     ping_thread = threading.Thread(target=self_ping)
     ping_thread.start()
+    
